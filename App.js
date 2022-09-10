@@ -6,28 +6,29 @@ import {
   SafeAreaView,
   Text,
 } from 'react-native';
- 
+
 // Import Navigators from React Navigation
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import RegisterScreen from './src/Screen/Auth/RegisterScreen';
 import LoginScreen from './src/Screen/Auth/LoginScreen';
 import SplashScreen from './src/Screen/SplashScreen';
- 
- 
+import DrawerNavigatorRoutes from './src/Routes/DrawerNavigationRoutes';
+import {RoutesName} from './src/Constant'
+
 const Stack = createStackNavigator();
 
-const Auth = () => {
+const AuthStack = () => {
   // Stack Navigator for Login and Sign up Screen
   return (
-    <Stack.Navigator initialRouteName="LoginScreen">
+    <Stack.Navigator initialRouteName={RoutesName.LOGIN}>
       <Stack.Screen
-        name="LoginScreen"
+        name={RoutesName.LOGIN}
         component={LoginScreen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="RegisterScreen"
+        name={RoutesName.REGISTER}
         component={RegisterScreen}
         options={{
           title: 'Register', //Set Header Title
@@ -44,22 +45,28 @@ const Auth = () => {
   );
 };
 
-const App=()=> {
+const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName="SplashScreen">
-      <Stack.Screen
-        name="SplashScreen"
-        component={SplashScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Auth"
-        component={Auth}
-        options={{headerShown: false}}
-      />
-    </Stack.Navigator>
-  </NavigationContainer>
+      <Stack.Navigator initialRouteName={RoutesName.SPLASH}>
+        <Stack.Screen
+          name={RoutesName.SPLASH}
+          component={SplashScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={RoutesName.AUTH_STACK}
+          component={AuthStack}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name={RoutesName.DRAWER_NAVIGATION_ROUTES}
+          component={DrawerNavigatorRoutes}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

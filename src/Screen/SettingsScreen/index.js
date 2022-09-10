@@ -6,15 +6,15 @@ import {
 } from 'react-native';
 import { COLORS } from '../../Constant';
 
-const LoginScreen = ({navigation}) => {
+const SettingScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-     <Text style={{color:'#fff',fontFamily:'Nunito-Bold'}}>Login</Text>
+     <Text style={{color:'#fff',fontFamily:'Nunito-Bold'}}>SettingScreen</Text>
     </View>
   );
 };
  
-export default LoginScreen;
+export default SettingScreen;
  
 const styles = StyleSheet.create({
   container: {

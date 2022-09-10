@@ -3,9 +3,9 @@ import {
   ActivityIndicator,
   View,
   StyleSheet,
-  Image
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { COLORS, RoutesName } from '../Constant';
 
 const SplashScreen = ({navigation}) => {
   const [animating, setAnimating] = useState(true); 
@@ -14,7 +14,7 @@ const SplashScreen = ({navigation}) => {
       setAnimating(false);
       AsyncStorage.getItem('user_id').then((value) =>
         navigation.replace(
-          value === null ? 'Auth' : 'Auth'
+          value === null ?RoutesName.AUTH_STACK :RoutesName.DRAWER_NAVIGATION_ROUTES
         ),
       );
     }, 5000);
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#307ecc',
+    backgroundColor: COLORS.primary,
   },
   activityIndicator: {
     alignItems: 'center',
