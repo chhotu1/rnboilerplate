@@ -2,10 +2,12 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from './../Screen/HomeScreen';
-import CustomSidebarMenu from './../Components/CustomSidebarMenu';
-import NavigationDrawerHeader from './../Components/NavigationDrawerHeader';
 import SettingScreen from '../Screen/SettingsScreen';
 import { COLORS, RoutesName } from '../Constant';
+import HeaderLeft from '../Components/SideBar/HeaderLeft';
+import HeaderRight from '../Components/SideBar/HeaderRight';
+import CustomSidebarMenu from '../Components/SideBar/CustomSidebarMenu';
+import Tabs from '../Components/Tabs';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -14,16 +16,19 @@ const HomeScreenStack = ({ navigation }) => {
     <Stack.Navigator initialRouteName={RoutesName.HOME}>
       <Stack.Screen
         name={RoutesName.HOME}
-        component={HomeScreen}
+        component={Tabs}
         options={{
           title: 'Home', //Set Header Title
           headerLeft: () => (
-            <NavigationDrawerHeader navigationProps={navigation} />
+            <HeaderLeft navigationProps={navigation} />
+          ),
+          headerRight: () => (
+            <HeaderRight navigationProps={navigation} />
           ),
           headerStyle: {
-            backgroundColor: COLORS.NavigationDrawerHeaderColor
+            backgroundColor: COLORS.NavigationDrawerHeaderColor,
           },
-          headerTintColor: '#FFFFFF', //Set Header text color
+          headerTintColor: '#FFFFFF',
           headerTitleStyle: {
             fontWeight: 'bold', //Set Header text style
           },
@@ -39,7 +44,7 @@ const SettingScreenStack = ({ navigation }) => {
       initialRouteName={RoutesName.SETTING}
       screenOptions={{
         headerLeft: () => (
-          <NavigationDrawerHeader navigationProps={navigation} />
+          <HeaderLeft navigationProps={navigation} />
         ),
         headerStyle: {
           backgroundColor: COLORS.NavigationDrawerHeaderColor
@@ -63,16 +68,16 @@ const SettingScreenStack = ({ navigation }) => {
 const DrawerNavigatorRoutes = (props) => {
   return (
     <Drawer.Navigator
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false,drawerActiveTintColor:'#fff',drawerInactiveTintColor: "#fff" }}
       drawerContent={CustomSidebarMenu}>
       <Drawer.Screen
         name={RoutesName.HOME_STACK}
-        options={{ drawerLabel: 'Home Screen' }}
+        options={{ drawerLabel: 'Home' }}
         component={HomeScreenStack}
       />
       <Drawer.Screen
         name="settingScreenStack"
-        options={{ drawerLabel: 'Setting Screen' }}
+        options={{ drawerLabel: 'Setting' }}
         component={SettingScreenStack}
       />
     </Drawer.Navigator>

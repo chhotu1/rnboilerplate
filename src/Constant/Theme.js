@@ -5,8 +5,8 @@ export const COLORS = {
     // base colors
     primary: "#23AA49",
     secondary: "#97A0A9",
-    NavigationDrawerHeaderColor:"#307ecc",
-
+    NavigationDrawerHeaderColor:"#23AA49",
+    buttomTabBackgroundColor:"#1db347",
     // more colors
     dark: "#1F1918",
     black100: "#1F1918",
@@ -121,6 +121,15 @@ export const HEADINGSTYLE = {
     },
 };
 
+export const COMMONSTYLE = {
+    mainBody: {
+        flex: 1,
+        padding: 10,
+        backgroundColor:COLORS.white
+    },
+};
+
+
 const appTheme = {
     COLORS,
     SIZES,
@@ -129,6 +138,7 @@ const appTheme = {
     BUTTONTEXT,
     INPUT,
     HEADINGSTYLE,
+    COMMONSTYLE
 };
 
 export default appTheme;

@@ -8,6 +8,7 @@ import {
 } from '@react-navigation/drawer';
  
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { RoutesName } from '../../Constant';
 
  
 const CustomSidebarMenu = (props) => {
@@ -16,11 +17,11 @@ const CustomSidebarMenu = (props) => {
       <View style={stylesSidebar.profileHeader}>
         <View style={stylesSidebar.profileHeaderPicCircle}>
           <Text style={{fontSize: 25, color: '#307ecc'}}>
-            {'About React'.charAt(0)}
+            {'Free Sale'.charAt(0)}
           </Text>
         </View>
         <Text style={stylesSidebar.profileHeaderText}>
-          AboutReact
+          Free Sale
         </Text>
       </View>
       <View style={stylesSidebar.profileHeaderLine} />
@@ -29,7 +30,7 @@ const CustomSidebarMenu = (props) => {
         <DrawerItemList {...props} />
         <DrawerItem
           label={({color}) => 
-            <Text style={{color: '#d8d8d8'}}>
+            <Text style={{color: '#FFFFFF',fontWeight:'bold'}}>
               Logout
             </Text>
           }
@@ -49,7 +50,7 @@ const CustomSidebarMenu = (props) => {
                   text: 'Confirm',
                   onPress: () => {
                     AsyncStorage.clear();
-                    props.navigation.replace('Auth');
+                    props.navigation.replace(RoutesName.AUTH_STACK);
                   },
                 },
               ],

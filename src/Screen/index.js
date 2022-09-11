@@ -1,10 +1,12 @@
 import LoginScreen from './Auth/LoginScreen';
 import RegisterScreen from './Auth/RegisterScreen';
-import RegisterScreen from './Auth/ForgotPasswordScreen';
 import SplashScreen from './SplashScreen';
+import HomeScreen from './HomeScreen';
+import SettingsScreen from './SettingsScreen';
 export{
     LoginScreen,
     RegisterScreen,
-    RegisterScreen,
-    SplashScreen
+    SplashScreen,
+    SettingsScreen,
+    HomeScreen
 }

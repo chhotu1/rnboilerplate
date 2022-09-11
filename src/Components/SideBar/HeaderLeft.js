@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
+import { Icons } from '../../Constant';
  
-const NavigationDrawerHeader = (props) => {
+const HeaderLeft = (props) => {
   const toggleDrawer = () => {
     props.navigationProps.toggleDrawer();
   };
@@ -9,14 +10,11 @@ const NavigationDrawerHeader = (props) => {
     <View style={{flexDirection: 'row'}}>
       <TouchableOpacity onPress={toggleDrawer}>
         <Image
-          source={{
-            uri:
-              'https://raw.githubusercontent.com/AboutReact/sampleresource/master/drawerWhite.png',
-          }}
+          source={Icons.drawerWhiteIcon}
           style={{width: 25, height: 25, marginLeft: 5}}
         />
       </TouchableOpacity>
     </View>
   );
 };
-export default NavigationDrawerHeader;
+export default HeaderLeft;
